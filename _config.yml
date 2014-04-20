@@ -58,7 +58,7 @@ JB :
   #   - Only the following values are falsy: ["", null, false]
   #   - When setting BASE_PATH it must be a valid url.
   #     This means always setting the protocol (http|https) or prefixing with "/"
-  BASE_PATH : http://darranchen.github.com/Blog
+  BASE_PATH :  http://blog.xjchen.net
 
   # BASE_PATH : false
 
