@@ -1,12 +1,6 @@
 ---
 layout: post
 title: "Augment octave with vim"
-date: 2014-04-16 11:33
-categories: jekyll update
----
----
-layout: post
-title: "Augment octave with vim"
 date:  2014-04-16 11:33
 categories: Technology
 tags: Vim, Octave
