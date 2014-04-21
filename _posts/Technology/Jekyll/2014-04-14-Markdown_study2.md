@@ -78,4 +78,9 @@ markdown: kramdown
 
 {%endhighlight %}
 
+## Vim highlight for Mardown
+
+从 [vim-Markdown][Markdown] 下载 `markdown-1.2.2.vba.gz` 直接用vim 打开之后用 `:so %` 来解压即可
+
 [yanping]: http://yanping.me/cn/blog/2012/03/10/octopress-with-latex/
+[Markdown]: http://www.vim.org/scripts/script.php?script_id=2882 "Markdown syntax highlight"
