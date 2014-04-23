@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Blog Setup"
-date: 2014-04-14 20:34:00
+title: "网络问卷调查"
+date: 2014-04-23 12:34:00
 categories: Statistics
 tags: 统计， survey 
 keywords: 统计，网络问卷调查

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Blog Setup"
+title: "蝴蝶效应和辛普森悖论"
 date: 2014-04-23 23:34:00
 categories: Statistics
 tags: 统计  
