@@ -193,14 +193,12 @@ blog.xjchen.net
 
 * 到'_config.yml' 所在的目录下，使用git让本地的Blog目录与github 的Blog仓库建立链接
 
-    cd darranBlog
-    git init
+        cd darranBlog
+        git init
 
 * 创建一个没有父节点的分支gh-pages. 因为github 规定有该分支的上传的才会自动生成网页文件
 
-```
-git checkout --orphan gh-pages
-```
+        git checkout --orphan gh-pages
 
 * 把当前目录的东西上传到github.
 
