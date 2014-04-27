@@ -204,10 +204,13 @@ git checkout --orphan gh-pages
 
 * 把当前目录的东西上传到github.
 
+{%highlight Ruby%}
     git add .
     git commit -m "first post"
     git remote add origin https://github.com/darranchen/Blog
     git push origin gh-pages
+{%endhighlight %}
+
 
 要等10分钟左右就可以看到blog生成了，但是我一开始没有成功，因为我还没有购买我的域名 [blog.xjchen.net][xj]. 
 
