@@ -7,8 +7,7 @@ tags: Vim, Lubuntu13.01
 keywords: Lubuntu13.01, vim, gedit
 ---
 
-太久没有重装系统了，主要是想要装一下jekyll, 同时由于之间系统安装时候有个bug 所以果断重装了。下面是要加上我的系统重装后需要加上的功能：
-
+太久没有重装系统了，主要是想要装一下jekyll, 同时由于之间系统安装时候有个bug 所以果断重装了。下面是要加上我的系统重装后需要加上的功能： 
 # gedit
 这是简单需要用到的阅读文档工具，比较像windows 中的记事本工具，有时候vim对于复制粘帖不太方便的时候会使用它：
 {% highlight ruby %}
@@ -65,9 +64,29 @@ sudo apt-get install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4
 sudo apt-get install ibus-googlepinyin
 {%endhighlight%}
 - 设置ibus
-$$
-a^2+b^2
-$$
+安装gnome language support
+{% highlight ruby %}
+sudo apt-get install language-selector-gnome
+{%endhighlight%}
+把默认输入方式修改为ibus
+
+#安装截图工具 gnome\-screenshot
+
+{% highlight ruby %}
+sudo apt-get install gnome-screenshot
+{%endhighlight%}
+设置快捷键, 原本以为lubuntu 上有直接设置快捷键的图形化界面，发现它管理快捷键的方式是由openbox来管理的
+
+    vim ~/.config/openbox/lubuntu-rc.xml
+
+加入,这个时候重新登录用户之后就可以 `Ctrl+Alt+a`就可以开始截图了。
+{% highlight ruby %}
+<keybind key="C-A-a">
+    <action name="Execute">
+        <command>gnome-screenshot -a</command>
+     </action>
+ </keybind>
+{%endhighlight%}
 
 [my_github]: https://github.com/darranchen/vim "Optional Title"
 [宁雨]:http://ningyuwhut.blogspot.tw/2013/09/ubuntu-1240-jekyll.html

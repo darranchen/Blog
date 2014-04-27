@@ -14,7 +14,7 @@ description_length: 200
 #
 title : Xinjie's Blog
 address: 首页
-tagline: 所有的模型都是错的.
+tagline: 老師說：統計是門藝術.
 author :
   name : 新杰
   email : zsdxchenxinjie@gmail.com
@@ -58,7 +58,7 @@ JB :
   #   - Only the following values are falsy: ["", null, false]
   #   - When setting BASE_PATH it must be a valid url.
   #     This means always setting the protocol (http|https) or prefixing with "/"
-  BASE_PATH :  http://blog.xjchen.net
+  BASE_PATH : http://blog.xjchen.net 
 
   # BASE_PATH : false
 
@@ -104,7 +104,7 @@ JB :
   analytics :
     provider : google
     google : 
-    tracking_id : 'UA-50000-128-1'
+    tracking_id : 'UA-50000128-1'
     getclicky :
       site_id : 
     mixpanel :

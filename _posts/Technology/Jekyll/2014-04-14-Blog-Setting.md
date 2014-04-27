@@ -98,7 +98,7 @@ git clone https://github.com/darranchen/suyan.github.io
 从最外层的学起，他的CNAME 就是用来存域名的，如果不喜欢github的域名可以改成自己的域名，比如可以把内容改为
 
 ```
-xinjie.org
+blog.xjchen.net
 ```
 
 ## README\.md
@@ -117,12 +117,12 @@ xinjie.org
     author: 
     name: 新杰
     email: zsdxchenxinjie@gmail.com
-    link: http://xinjie.org
+    link: http://blog.xjchen.org
     github: http://github.com/darranchen
     # 站点信息
     title: Darran's Blog 
     description: Darran's Blog
-    url: http://xinjie.org
+    url: http://blog.xj.org
     rss_url: /pages/atom.xml
 
     # gavatar头像及Favicon
@@ -132,7 +132,7 @@ xinjie.org
     # google analytics 设置
     ga:
       id: UA-50000128-1
-      url: xinjie.org
+      url: blog.xjchen.net
 
     # disqus 设置
     #disqus:
@@ -185,6 +185,37 @@ xinjie.org
 *修改首页 `index.html`文档,把首页显示成我的信息
 *删除原来的文章，放入我的文章
 
+## 上传到Github
+
+修改完成之后就需要上传到Github。这个是参照 [ruanyi][ruanyi]的博客
+
+* 首先，到github 创建一个帐号，然后在帐号下面创建一个仓库，如我创建了一个Blog的仓库。
+
+* 到'_config.yml' 所在的目录下，使用git让本地的Blog目录与github 的Blog仓库建立链接
+
+    cd darranBlog
+    git init
+
+* 创建一个没有父节点的分支gh-pages. 因为github 规定有该分支的上传的才会自动生成网页文件
+
+```
+git checkout --orphan gh-pages
+```
+
+* 把当前目录的东西上传到github.
+
+    git add .
+    git commit -m "first post"
+    git remote add origin https://github.com/darranchen/Blog
+    git push origin gh-pages
+
+要等10分钟左右就可以看到blog生成了，但是我一开始没有成功，因为我还没有购买我的域名 [blog.xjchen.net][xj]. 
+
+# 购买与设置域名
+
+我是购买了万网的域名，直接到 [万网][万网] 的网站上面购买的，购买步骤就不详细叙述了。购买完之后到域名管理下面的 解析记录增加三个解析, 如我下图所示 ![域名][wan] 设置完成之后可能需要一到两天才可以访问。这样就完成了。
+
+[xj]: http://blog.xjchen.net
 [ever]: http://blog.evercoding.net/
 [mojombo]: https://github.com/mojombo/jekyll/wiki/sites
 [Skydark]: http://blog.skydark.info/ 
@@ -192,3 +223,6 @@ xinjie.org
 [yanping]: http://yanping.me/cn
 [geeklu]: http://geeklu.com
 [github]: http://github.com
+[ruanyi]: http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html
+[万网]: http://www.net.cn/
+[wan]: {{BASE_PATH}}/images/yuming.png
