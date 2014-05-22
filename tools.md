@@ -31,6 +31,17 @@ group: navigation
 
 ## 学术
 
+### Regression
+
+#### Orthogonal Regression
+
+* [Fit orthogonal regression using PCA](http://www.mathworks.com/help/stats/examples/fitting-an-orthogonal-regression-using-principal-components-analysis.html)
+* [Miss Use of Orthogonal regression(Readed)](http://www.stat.tamu.edu/~carroll/ftp/2011.papers.directory/Orthogonal_Regression.pdf)
+
+#### Functional Regression
+
+* [Factor Models and Variable Selection in High-dimensition Regression Analysis](http://arxiv.org/pdf/1202.5151v1.pdf)
+
 * [Google Scholar](http://scholar.google.com)
 * [图书馆](http://www.lib.pku.edu.cn)
 * [Wikipedia](http://www.wikipedia.org/)
