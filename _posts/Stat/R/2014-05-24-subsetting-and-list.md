@@ -3,7 +3,7 @@ layout: post
 title: "R note: Subsetting and list"
 date: 2014-05-24
 categories: Statistics
-tags: 统计 R list
+tags: 统计 R 
 keywords: 统计 R subsetting list
 ---
 

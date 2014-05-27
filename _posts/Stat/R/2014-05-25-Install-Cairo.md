@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Ubuntu R 安装 Cairo package
+title:  R 畫圖功能以及安装 Cairo package
 date: 2014-05-25 20:34:00
 categories: Statistics
-tags: R Cairo 绘图
+tags: R  绘图
 keywords: R 绘图 Cairo
 ---
 

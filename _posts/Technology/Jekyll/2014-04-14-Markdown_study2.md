@@ -3,7 +3,7 @@ layout: post
 title: "Markdown study note2"
 date: 2014-04-14 20:34:00
 categories: Technology
-tags: Jekyll, Markdown
+tags: Jekyll Markdown
 keywords: Jekyll, Markdown, Usage
 ---
     

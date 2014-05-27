@@ -3,8 +3,8 @@ layout: post
 title: "Ubuntu 13.01 安装latex 中文版"
 date: 2014-04-20 01:56:23
 categories: Technology
-tags: Vim, Lubuntu13.01, latex chinese
-keywords: Lubuntu13.01, vim, latex
+tags: Vim Ubuntu latex
+keywords: Lubuntu13.01 vim latex chinese
 ---
 
 ##Lubuntu 13.01 安装latex

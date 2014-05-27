@@ -4,7 +4,7 @@ title: "Blog plugin"
 titleline: "Disqus评论"
 date: 2014-04-27 20:34:00
 categories: Technology
-tags: Jekyll, Markdown
+tags: Jekyll Markdown
 keywords: Jekyll, Markdown, Usage 
 ---
 

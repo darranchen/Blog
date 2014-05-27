@@ -3,8 +3,8 @@ layout: post
 title: "Blog Setup"
 date: 2014-04-14 20:34:00
 categories: Technology
-tags: Jekyll, Markdown
-keywords: Jekyll, Markdown, Usage
+tags: Jekyll Markdown
+keywords: Jekyll Markdown Usage
 ---
 
 终于需要架构我的个人博客了，根据以往经验，最快的方式就是直接把人家的模板带过来，边学习边看，在 [mojombo][mojombo] 推荐了很多模板，看了下，太多模板了，一时下不了手，所以果断先找自己觉得可以的，先入手，之后再慢慢调排版。看了[yansu][yansu] 的博客，关于目录结构的假设，觉得他的目录架构很清晰，想要用他的目录结构，但是他的主页有点复杂，东西太多了，然后又看到 [geeklu][geeklu] 的主页看起来非常简洁所以先利用yansu的把目录架构先架构起来，然后再决定好模板好了，另外看到有 [雁起平沙][yanping] 的关于R的博客，先收藏下，之后有机会再学习学习。

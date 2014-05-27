@@ -3,7 +3,7 @@ layout: post
 title: "Augment octave with vim"
 date:  2014-04-16 11:33
 categories: Technology
-tags: Vim, Octave
+tags: Vim Octave
 ---
 
 之前对于R 使用r—plugin 感觉各种方便，因为课程的问题，我也经常需要用Matlab, 但是使用Matlab 经常需要使用界面化系统，编辑方面我还是想要跟R 一样用vim 进行编辑，后面发现了有Octave 也就是Matlab的开源版本，既然是开源版本，那么正常应该会有大神开发vim 的插件用于编辑 \.m (也就是Matlab\Octave)的文档，那我就想实现像在vim编辑R 文档一样，

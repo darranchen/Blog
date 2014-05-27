@@ -3,7 +3,7 @@ layout: post
 title: "Lubuntu13.01 Setup!"
 date: 2014-04-13 01:56:23
 categories: Technology
-tags: Vim, Lubuntu13.01
+tags: Vim Ubuntu
 keywords: Lubuntu13.01, vim, gedit
 ---
 

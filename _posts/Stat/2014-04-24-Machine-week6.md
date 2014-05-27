@@ -3,7 +3,7 @@ layout: post
 title: "Machine learning week 6, Model Improvement"
 date: 2014-04-23 20:34:00
 categories: Statistics
-tags: 统计, cross validation, error analysis 
+tags: 统计 machine_learning
 keywords: 统计，cross validation, error analysis
 ---
 

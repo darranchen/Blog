@@ -3,7 +3,7 @@ layout: post
 title: "Machine learning week 6, Recommendation System"
 date: 2014-05-19 20:34:00
 categories: Statistics
-tags: 统计  Machine_learning Recommendation_system
+tags: 统计  machine_learning 
 keywords: 统计，machine learning , Recommendation system
 ---
 

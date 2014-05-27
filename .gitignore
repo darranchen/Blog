@@ -5,6 +5,7 @@ _encrypted/*
 *~
 Thumbs.db
 .DS_Store
+tem*
 
 !.gitkeep
 
