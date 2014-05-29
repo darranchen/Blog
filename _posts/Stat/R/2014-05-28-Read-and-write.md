@@ -91,6 +91,141 @@ keywords: 统计 R readtable
      con = file("dput.r","wr") 创建一个链接
      {% endhighlight %}
 
+## read.table
+
+介绍完前面的一般方式之后，下面介绍比较常用到的 [read.table][] 和 [write.table][], 读取之后的资料会自动保存为data frame, 读取资料的时候会将同一个列的资料当作一个变数来表示，这个跟在进行统计分析的时候想法比较一致， 他的基本使用方式如下
+
+{%highlight bash%}
+read.table(file, header = FALSE, sep = "", quote = "\"'",
+           dec = ".", numerals = c("allow.loss", "warn.loss", "no.loss"),
+           row.names, col.names, as.is = !stringsAsFactors,
+           na.strings = "NA", colClasses = NA, nrows = -1,
+           skip = 0, check.names = TRUE, fill = !blank.lines.skip,
+           strip.white = FALSE, blank.lines.skip = TRUE,
+           comment.char = "#",
+           allowEscapes = FALSE, flush = FALSE,
+           stringsAsFactors = default.stringsAsFactors(),
+           fileEncoding = "", encoding = "unknown", text, skipNul = FALSE)
+
+# ex
+a1 <- c(1,2,3,4)
+a2 <- c("'32,1',"2","3","4")
+a <- data.frame(a1,a2)
+write.table (a, "Writetable.txt",sep=",")
+rm(a)
+a <- read.table("Writetable.txt",sep =",")
+{% endhighlight %}
+
+
+其中各个参数的意义如下:
+
+* file 自然而然就是文档名称了
+
+* header 是指第一行为名称行
+
+* sep="" 是指文档资料是以什么为间隔的，这里默认是空格为单元分隔符号 read.csv 就是默认为逗号( `,`)的读取格式
+
+* quote 是引用的意思，他会自动将引用符号中间的单元当作是character,在网上看到一个文章讲了自己原来输入200000行，结果出来只有100000行，原因就是没有把 `quote= ""`
+   
+{%highlight bash%}
+# 修改Writetable 有两行
+1,2,3,4
+'32,1',2,3,4 # 其中32,1被引用符号包起来，当作一个string
+
+a <- read.table("Writetable.txt",sep =",")
+print(a)
+    V1 V2 V3 V4
+'32 1' 2  3  4 # 因为如果是第一行的单元个数比所有的column数目少，那么就会默认设置header =T. 所以1, 2 ,3 ,4 就会设为header了。而‘32 也被当成了行的名称，如果要设置行名很简单，就先在第一个行里面加入比所有column数少一个的column的名称，之后将行名放在第一列里就可以了
+
+a <- read.table("Writetable.txt",sep =",",quote = "'")
+print(a)
+    V1     V2 V3 V4
+[1] 1      2  3  4
+[2] '32,1' 2  3  4  #V1 这一列被当为factor
+{% endhighlight %}
+
+* dec="." 就是标志小数点的符号，默认为.
+
+* numerials 就是当我们读取的文档里面是用double 存的数字, 读入时候可能会失去一定的数字位数，numerials就是来衡量可以损失的范围 allow.loss, warn.loss, no.loss
+
+* row.names 就是行名
+* col.names 列名
+
+* as.is 在R 中默认会将charactor 的资料转为factor,这个可以将不想要转为factor的charactor 保留原有格式
+
+
+{%highlight bash%}
+a <- read.table("Writetable.txt",sep =",",quote = "'",as.is = T)
+str(a)
+$a1: int 1 2 3 4
+$a2: chr "32.1","2","3","4"
+a <- read.table("Writetable.txt",sep =",",quote = "'",as.is = T)
+str(a)
+$a1: int 1 2 3 4
+$a2: Factor "32.1","2","3","4"
+{% endhighlight %}
+
+* na.string 如果是missing value 将要怎么去表示他
+
+* colClasses 就是告诉R 所有的column 是什么类型的资料，注意，如果提前讲会让R的读取速度加快
+
+* nrows 最大读取的行数，这样在当读取的表格超过系统的memory时比较有用.
+
+* skip  默认跳出的行数的个数
+
+* check.names 如果是TRUE ，就会检查name 的命名方式是否符合闺房.
+
+* fill logical 如果是真的，那么就会默认允许所有行的个数不一致，自动填充确实的空格。
+
+* strip.white  只有当sep 定义的时候才有用，不过不知道什么意思。
+
+* blank.lines.skip logical 如果是真的的话，那么就直接跳过空白行
+
+* comment.char character: 用来定义作为备注的行，比如这里默认是用\#,如果需要设置没有comment 则为""
+
+* allowEscapes logical 允许使用C类型的分界符。
+
+* flush logical
+
+* stringsAsFactor True, 是否将string 转为factor, 默认是允许的，这个的权限比as.is 和colClasses小。
+
+*  fileEncoding 
+
+* encoding 就是文档的类型是什么编码方式，可以是UTF-8
+
+* text 
+
+* skitNul 
+
+在读入大资料的时候需要注意目前R的memory 是否足够。需要了解的信息如下：
+
+1. R 有多少memory可以使用。
+2. 有什么applications 正在使用
+3. 有多少其他使用者登录到这个系统中
+4. 是使用什么OS lubuntu13.01
+5. 是32位还是64位
+
+## 与文档建立链接
+
+有时候需要与文档或者网页进行链接，获得所需要的资料，有多次存取又不需要每次都去输入文档名字，就可以建立一个connection.
+
+* file 与file 建立链接， 有三种方式
+  * r 就是读取文档
+  * w 就是写入文档
+  * a appending 就是在文档后面写入
+
+        con <- file("Writetable.txt","r") # 读取文档
+        x <- readLines(con) # 从文档中读取
+
+* bzfile 与gzip的文档建立链接
+
+* gzfile 与bzip2 的文档建立链接
+
+* url 与网页建立链接
+        con <- url("http://blog.xjchen.net","r")
+
+    
+
 
 [data]: http://blog.xjchen.net/statistics/2014/05/20/R-datatype/
 [list]: http://blog.xjchen.net/statistics/2014/05/24/subsetting-and-list/
@@ -105,3 +240,4 @@ keywords: 统计 R readtable
 [dput]: http://stat.ethz.ch/R-manual/R-devel/library/base/html/dput.html
 [load]: http://stat.ethz.ch/R-manual/R-devel/library/base/html/load.html
 [unserialize]: http://stat.ethz.ch/R-manual/R-devel/library/base/html/serialize.html
+
