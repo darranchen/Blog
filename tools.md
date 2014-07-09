@@ -31,6 +31,18 @@ group: navigation
 
 ## 学术
 
+### Statistical learning
+
+* ElemStataLearn: [ESTL](http://cran.r-project.org/web/packages/ElemStatLearn/index.html)
+
+#### GAM 
+
+* VGAM: r package: [VGAM](http://cran.r-project.org/web/packages/VGAM/index.html)
+
+* [GAM Boost][]
+* [gamboostLSS][] 
+
+
 ### Regression
 
 #### Orthogonal Regression
@@ -57,8 +69,7 @@ group: navigation
 * [Web Equation](http://webdemo.visionobjects.com/equation.html?locale=zh_CN)
 * [Detexify](http://detexify.kirelabs.org/classify.html)
 
-### Logic
-
+### Logic 
 * [Boss](http://www.is.pku.edu.cn/~lz/cindex.html)
 * [Pei Wang](http://www.cis.temple.edu/~wangp/)
 * [Wang YJ](http://www.phil.pku.edu.cn/personal/wangyj/index.html)
@@ -70,4 +81,9 @@ group: navigation
 
 {% include sd/generate_tabs %}
 {% include sd/pretty_tabs %}
+
+[gamboostLSS]: http://cran.r-project.org/web/packages/gamboostLSS/index.html "Boosting models for fitting generalized additive models for location, shape and scale (GAMLSS) to potentially high dimensional data."
+
+
+[GAM Boost]: http://cran.r-project.org/web/packages/GAMBoost/index.html "Fitting generalized linear and generalized additive models by likelihood based boosting, using penalized B-splines, It is especially suited for models with a large number of predictors with potential non-linear influence"
 
