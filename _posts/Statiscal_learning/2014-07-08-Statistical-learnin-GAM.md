@@ -45,10 +45,85 @@ $$ PRSS = \sum_{i= 1}^N(y_i-\beta_0-\sum_{j=1}^p f_j(x_{ij}))^2+\sum_{j=1}^p \la
 
 # r Package for GAM
 
-这里先介绍用 [VGAM］
+做GAM的package有很多个，这里就使用gam这个package 
 
+{% highlight r%}
+install.packages("~/Downloads/gam_1.09.1.tar.gz")
+library(gam)
+{% endhighlight %}
 
+这里使用gam自己的范例，不过步骤还是参照之间写的 [数据分析步骤][step].
+
+{% highlight r%}
+# 这是gam的范例,读入资料
+data(gam.data)
+gam.object <- gam(y ~ s(x,6) + z,data=gam.data)
+plot(gam.object,se=TRUE)
+data(gam.newdata)
+preplot(gam.object,newdata=gam.newdata)
+{% endhighlight %}
+
+可以看到上面对于gam\.data 这笔资料，主要是建立x 和z 之间的关系,那么第一步看无模型假设的图形。
+
+{% highlight r%}
+pairs( y ~x+z, data = gam.data)
+library(scatterplot3d)
+par(mfrow = c(1,2))
+scatterplot3d(x,z,y, data=gam.data)
+{% endhighlight %}
+
+ ![pairs][]
+ ![scatter][]
+
+第二步选择适合的模型: 从pairs plot看出对于x来说对y是有影响的，但是z看起来有点散，感觉z与y之间没有什么关系的样子。这里使用了 s(x,6) 这个其实是一个smoothing operation S,对于x做了一个6阶平滑的函数，其实平时可能不需要做这么多阶的平滑，选择几阶的平滑可以使用cross varidation或者AIC去选择，选一个最好了，先回到刚刚需要加z还是不加z的问题。 这里他的范例也给我们结果
+
+{% highlight r%}
+gam.object <- gam(y~s(x,6)+z,data=gam.data)
+anova(gam.object)
+gam.object2 <- update(gam.object, ~.-z)
+anova(gam.object, gam.object2, test="Chisq")
+{% endhighlight %}
+
+ ![anova][]
+
+从Anova 的分析表可以看到，对于s(x,6)这个转化来说，p\-value 比较小,几乎接近与0,也就是有影响的，从两个模型变异程度的解释性，看到用chi\-square的解释就并没有一个显著的影响，这里可以判定不需要加上z
+
+第三步 估计的参数以及预测值
+
+{% highlight r%}
+gam.object2$coef
+(Intercept)      s(x,6)
+1.9218            -2.318
+summary(gam.object2)
+{% endhighlight %}
+
+因为我们这里对于x做了一个转换，那么在做预测的时候可以看x转换后的值
+
+{% highlight r%}
+# term s(x,6)
+predict(gam.object,type="terms")
+# term response 估计值
+predict(gam.data,type = "response")
+# 预测 
+data(gam.newdata)
+predict(gam.data,type = "response",newdata = gam.newdata)
+{% endhighlight %}
+
+第四步: 模型配适情况
+
+![summary][]
+
+从summary的表格可以看到模型解释掉了 $\frac{38.21}{57.94} $ 的变异程度，还是比较不错的。
+
+后面的假设验证跳过，
+
+给点gam 的小结论，其实gam 相对与简单线性回归更有调整空间，同时也保留了一定的解释能力，不过算法对于资料比较大的情况，可以不太适合。
 
 
 [Ng]: https://class.coursera.org/ml-005
-[VGAM]: http://cran.r-project.org/web/packages/VGAM/index.html " 
+[VGAM]: http://cran.r-project.org/web/packages/VGAM/index.html 
+[step]: http://blog.xjchen.net/statistics/2014/07/09/Data-analysis-step/ 
+[pairs]: {{BASE_PATH}}/images/GAM/GAM_pairs.png
+[scatter]: {{BASE_PATH}}/images/GAM/GAM_scatter3d.png
+[anova]: {{BASE_PATH}}/images/GAM/GAM_anova.png
+[summary]: {{BASE_PATH}}/images/GAM/GAM_summary.png
