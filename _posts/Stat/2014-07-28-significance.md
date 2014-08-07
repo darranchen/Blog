@@ -42,5 +42,5 @@ $$ y = 2.37 + 0.997 x_3 +6.37 x_2 $$
 
 讲了上面这么多废话，为什么说统计的显著性角度来说，是没有显著与更显著这样的说法， 因为我们是先给定了一个 显著水准 $\alpha$， 比如0.05， 如果 p\-value \< 0.05 , 那么我们就说它显著， 本身这个假设只是在做是否显著不为0， 所以也扯不上到底谁对y有更显著的影响。
 
-[fitting]: http://blog.xjchen.net/statistics/2014/07/28/fitting-prediction/
+[fitting]: http://blog.xjchen.net/stat/statistics/2014/07/28/fitting-prediction/
 [summary]: {{BASE_PATH}}/images/Statistical_thought/summary.png
