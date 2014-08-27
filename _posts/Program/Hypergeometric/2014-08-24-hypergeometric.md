@@ -73,7 +73,124 @@ $$
 
 在Prior distribution 是beta-binomial distribution 的前提下， Posterior Distribution 还会是一个 beta-binomial distribution, 不过参数变成了 $x+\alpha, N-x+\beta$.
 
-根据上面的推导方式, 考虑多维的情况，对于beta-binomial distribution, 它的多维分布为Dirichelet-multinomial distribution, 给定参数 $\vec{\alpha} = (\alpha_1,\alpha_2,\ldots,\alpha_{10})$, 它的后
+根据上面的推导方式, 考虑多维的情况，对于beta-binomial distribution, 它的多维分布为Dirichelet-multinomial distribution, 给定参数 
+$\vec{\alpha} = (\alpha_1,\alpha_2,\ldots,\alpha_k)$ , 假如下一期开出的结果在每一类中的个数为 $x_1,x_2,\ldots,x_k$. 那么得到资料之后它的Posterior distribution也是服从一个Dirichelet-multinomial distribution,它的参数为 $(\alpha_1+x_1,\alpha_2+x_2,\ldots,\alpha_k+x_k)$. 
+
+那么这些参数要如何给比较好， 一开始有的资讯就是0的尾数的球的个数是4个， 1到9的尾数的球的个数是5个， 因此 Prior distribution 的参数给定 $ (\alpha_1,\alpha_2,\ldots,\alpha_k) = (4, 5, \ldots, 5)$, 我们的资料是到2013年6月18号为止的 262期的开奖记录，统计到这10类总共出现的个数 $(x_1, x_2, \ldots, x_k) = ( 145,194,184,185,205,172,167,217,187,178) $ 
+
+<table class="table table-bordered table-striped table-condensed">
+<tr>
+<td>尾数</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+</tr>
+
+<tr>
+<td>Prior $\vec{\alpha}$</td>
+<td>4</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+</tr>
+
+<tr>
+<td>$\vec{x}$</td>
+<td>145</td>
+<td>194</td>
+<td>184</td>
+<td>185</td>
+<td>205</td>
+<td>172</td>
+<td>167</td>
+<td>217</td>
+<td>187</td>
+<td>178</td>
+</tr>
+
+<tr>
+<td>$\vec{x}+\vec{\alpha}$</td>
+<td>149</td>
+<td>199</td>
+<td>189</td>
+<td>190</td>
+<td>210</td>
+<td>177</td>
+<td>172</td>
+<td>222</td>
+<td>192</td>
+<td>183</td>
+</tr>
+
+</table>
+
+有了Posterior distribution 的参数之后，那么就能得到我们关心的东西，也就是下一期各个尾数出现的机率值为多少，这里使用蒙地卡罗模拟的方式得到我们关心的机率值，具体步骤如下:
+
+1. 定义重复抽取的次数为K, 也就是做K次模拟实验,
+2. 从Dirichelet($\vec{\alpha}+\vec{x}$) 中产生每一类被抽到的机率 $\vec{p} = (p_1,p_2,\ldots,p_{10})$,
+3. 有了各类抽取的机率 $\vec{p}$ 之后，从一个Multinomial(N=49, $\vec{p}$) 的分布抽取 $ M_1, M_2,\ldots,M_k$ 从10类里面产生N = 49 个,每一个出现的机率值为 $\vec{p}$ 得到在这49个球里面，每一类的个数 $M_1,M_2,\ldots,M_k$,
+4. 有了这10类的个数 $\vec{M}$ 总数49，以及要抽取7个球，这就会到了49个球取出不放回的抽样，抽出7个球，各类的个数 $x_1,x_2,\ldots, x_{10}$ 就是服从超几何分布的，
+5. 重复上面2-4的动作知道K次位置，计算我们关心的机率，也就是在这K次里面有多少抽到了我们关心的尾数，如果出现了 $K_i$ 那么机率就是 $\frac{K_i}{K}$
+
+令重复次数为K = 10000, 通过模拟之后得到各个尾数下一期出现的机率值为下表所示:
+
+
+<table class="table table-bordered table-striped table-condensed">
+<tr>
+<td>尾数</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+</tr>
+
+<tr>
+<td>$P(Y|\vec{\alpha}$</td>
+<td>0.429</td>
+<td>0.508</td>
+<td>0.508</td>
+<td>0.508</td>
+<td>0.508</td>
+<td>0.508</td>
+<td>0.508</td>
+<td>0.508</td>
+<td>0.508</td>
+<td>0.508</td>
+</tr>
+
+<tr>
+<td>$P(Y|\vec{\alpha}$</td>
+<td>0.429</td>
+<td>0.547</td>
+<td>0.523</td>
+<td>0.526</td>
+<td>0.563</td>
+<td>0.497</td>
+<td>0.486</td>
+<td>0.583</td>
+<td>0.526</td>
+<td>0.510</td>
+</tr>
+</table>
 
 
 
