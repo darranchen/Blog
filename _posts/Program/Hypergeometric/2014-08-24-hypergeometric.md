@@ -164,7 +164,7 @@ $\vec{\alpha} = (\alpha_1,\alpha_2,\ldots,\alpha_k)$ , 假如下一期开出的�
 </tr>
 
 <tr>
-<td>$P(Y|\vec{\alpha}$</td>
+<td>$P(Y|\vec{\alpha})$</td>
 <td>0.429</td>
 <td>0.508</td>
 <td>0.508</td>
@@ -178,16 +178,16 @@ $\vec{\alpha} = (\alpha_1,\alpha_2,\ldots,\alpha_k)$ , 假如下一期开出的�
 </tr>
 
 <tr>
-<td>$P(Y|\vec{\alpha}$</td>
-<td>0.429</td>
-<td>0.547</td>
+<td>$P(Y|\vec{\alpha}+\vec{x})$</td>
+<td>0.437</td>
+<td>0.541</td>
 <td>0.523</td>
-<td>0.526</td>
-<td>0.563</td>
-<td>0.497</td>
-<td>0.486</td>
-<td>0.583</td>
-<td>0.526</td>
+<td>0.524</td>
+<td>0.562</td>
+<td>0.498</td>
+<td>0.488</td>
+<td>0.584</td>
+<td>0.528</td>
 <td>0.510</td>
 </tr>
 </table>
