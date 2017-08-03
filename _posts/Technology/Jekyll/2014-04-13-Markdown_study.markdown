@@ -7,6 +7,8 @@ tags: Jekyll Markdown
 keywords: Jekyll, Markdown, Usage
 ---
     
+# 博客
+
 首先是博客的需求：
 
 1. 比较好的文档结构编排。
@@ -18,6 +20,8 @@ keywords: Jekyll, Markdown, Usage
 
 有了这些需求之后非常感谢清平大神推荐我使用Jekyll， 感觉Jekyll 能满足我大部分的需求啊。开始学习怎么编写Markdown.
 
+# 标题2
+
 阅读完 [a][othree] 的繁体说明档之后，对于Markdown 有基本的了解，Markdown 是一种纯编写的格式，尽可能简单易写，容易读懂就好，尽管和HTML有千丝万缕的关系，不过，我要Markdown 就是来写博客的，所以就不用考虑太多啦，直接开始学习了。不过还是试试在Markdown 中插入一个HTML的格式看看
 
     <table>
@@ -28,27 +32,26 @@ keywords: Jekyll, Markdown, Usage
 
 显示结果就跟下面一样，问题是上面这样写Markdown 文档可阅读性太差了，而且当作代码段还需要刻意空4格，太麻烦了，所以还是要用一下highlight会比较合适。
 
-<table>
-    <tr>
-        <td>Foo</td>
-    <tr>
-<table>
+# 标题3
 
-{% highlight Ruby%}
+
+{%highlight Ruby%}
 <table>
     <tr>
        <td>Foo</td>
     <tr>
 <table>
-{% endhighlight %}
+{%endhighlight %}
+
+# 标题4
 
 其实需要的简单就是一个
 
 # 段落
 
-段落，也就是编写一整段的文字，只要空一行以上就是一段了(包括了里面有tab的情况)
+    段落，也就是编写一整段的文字，只要空一行以上就是一段了(包括了里面有tab的情况)
 
-# 标题
+#标题
 
 写的时候需要做标题,这个时候其实Markdown 有两种方式可以做标题的，但是我还是喜欢这种
 
@@ -65,25 +68,24 @@ keywords: Jekyll, Markdown, Usage
 这里列表的功能比较像Latex中的enumerate和itemize的功能，写上列表之后会让文章看起来更加有条理性，有两种列表，无序列表和有序列表
 可以使用\*,\+,\- 来表示比如下面的代码， 注意如果使用\{\% highlight Ruby \%\}会使内嵌结果出现问题，所以只能是使用空四格，而且最好是在列表标识符后面补充空到4格那么才不容易发生错误。
 {% highlight Ruby %}
+
 *   line one 
     continuous
-  
-    *   nest 
-
-            nest code
+  * nest 
+    nest code
 
     *   sub item2
 *   item 2
 {% endhighlight %}
 
-*   line one 
-    continuous
-  
-    *   nest 
+* line
+
+    * nest 
 
             nest code
 
     *   sub item2
+
 *   item 2
 
 # 代码区块

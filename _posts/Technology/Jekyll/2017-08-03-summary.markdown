@@ -77,6 +77,30 @@ keywords: Jekyll, Markdown, Usage
     *   sub item2
 *   item 2
 
+有序的也可以用1234来表示
+
+{% highlight Ruby %}
+1. 第一
+    1.2 子标题
+{% endhighlight %}
+
+1. 第一
+    1.2 子标题
+
+# 强调:
+
+强调可以通过星号或者下划线来表示， 
+
+{% highlight Ruby %}
+*a* ==> <em> a <em>
+**a** ==> <strong> a <strong>
+{% endhighlight %}
+
+*a* 
+**a**
+
+
+
 
 有了这些需求之后非常感谢清平大神推荐我使用Jekyll， 感觉Jekyll 能满足我大部分的需求啊。开始学习怎么编写Markdown.
 
