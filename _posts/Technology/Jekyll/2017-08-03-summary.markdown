@@ -104,12 +104,15 @@ keywords: Jekyll, Markdown, Usage
 
 # 5.代码
 
+这样就可以达到效果了
+
 还有一种方式:
 
 {% highlight Ruby %}
 ```javascript
 var canvas = document.getElementByld("canvas")
 ```
+{% endhighlight %}
 
 ```javascript
 var canvas = document.getElementByld("canvas")
@@ -117,7 +120,12 @@ var canvas = document.getElementByld("canvas")
 
 也可以用\`\`表示行内代码
 
+
+{% highlight Ruby %}
+这是`javascript`代码
+
 {% endhighlight %}
+
 
 [othree]: http://markwodn.tw/#p
 
