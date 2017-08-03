@@ -6,6 +6,9 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 #pygments: true
 highlighter: pygments
 markdown: kramdown
+kramdown:
+    input: GFM
+#markdown: rdiscount
 #markdown_ext: markdown
 #paginate: 6
 plugins: [jekyll-paginate]
