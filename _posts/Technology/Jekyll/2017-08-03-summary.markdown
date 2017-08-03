@@ -104,7 +104,7 @@ keywords: Jekyll, Markdown, Usage
 
 # 5.代码
 
-使用\{% highlight Ruby %\} 代码 \{% endhighlight %\}
+使用\{\% highlight Ruby \%\} 代码 \{\% endhighlight \%\}
 这样就可以达到效果了
 
 还有一种方式:
