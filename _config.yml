@@ -3,10 +3,12 @@
 permalink: /:categories/:year/:month/:day/:title
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-pygments: true
+#pygments: true
+highlighter: pygments
 markdown: kramdown
 #markdown_ext: markdown
-paginate: 6
+#paginate: 6
+plugins: [jekyll-paginate]
 description_length: 200
 
 # Themes are encouraged to use these universal variables
