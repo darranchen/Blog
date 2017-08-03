@@ -75,6 +75,7 @@ sudo apt-get install language-selector-gnome
 {% highlight ruby %}
 sudo apt-get install gnome-screenshot
 {%endhighlight%}
+
 设置快捷键, 原本以为lubuntu 上有直接设置快捷键的图形化界面，发现它管理快捷键的方式是由openbox来管理的
 
     vim ~/.config/openbox/lubuntu-rc.xml
@@ -87,6 +88,8 @@ sudo apt-get install gnome-screenshot
      </action>
  </keybind>
 {%endhighlight%}
+
+还有一种方式是直接找到 系统-设置-键盘 自定义快捷键， 设定名称和对应的命令， 对应的命令是 gnome-screenshot -a, 应用， 看到后面的禁用， 禁用处添加上 Ctrl+Alt+a就可以设置对应的快捷键了。
 
 [my_github]: https://github.com/darranchen/vim "Optional Title"
 [宁雨]:http://ningyuwhut.blogspot.tw/2013/09/ubuntu-1240-jekyll.html
