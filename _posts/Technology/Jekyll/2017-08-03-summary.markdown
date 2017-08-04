@@ -15,10 +15,13 @@ keywords: Jekyll, Markdown, Usage
 4. 强调:
 5. 代码:
 6. 数学符号:
-7. 表格: 
-8. 图片:
-9. HTML:
+7. 注释:
+8. 表格: 
+9. 图片:
+10. 链接:
+11. 分隔行:
 
+全貌 ![markdown][]
 
 # 1.标题
 
@@ -34,8 +37,8 @@ keywords: Jekyll, Markdown, Usage
 
 另一种方式就是直接在文本下面加上\_
 
+**例子1**
 {%highlight Ruby%}
-
 ---
 layout: post
 title: "Markdown 总结"
@@ -55,6 +58,8 @@ keywords: Jekyll, Markdown, Usage
 
 这里列表的功能比较像Latex中的enumerate和itemize的功能，写上列表之后会让文章看起来更加有条理性，有两种列表，无序列表和有序列表
 可以使用\*,\+,\- 来表示比如下面的代码， 注意如果使用\{\% highlight Ruby \%\}会使内嵌结果出现问题，所以只能是使用空四格，而且最好是在列表标识符后面补充空到4格那么才不容易发生错误。
+
+**例子2**
 {% highlight Ruby %}
 *   line one 
     continuous
@@ -79,6 +84,7 @@ keywords: Jekyll, Markdown, Usage
 
 有序的也可以用1234来表示
 
+**例子3**
 {% highlight Ruby %}
 1. 第一
 2. 第二
@@ -93,6 +99,7 @@ keywords: Jekyll, Markdown, Usage
 
 强调可以通过星号或者下划线来表示， 
 
+**例子4**
 {% highlight Ruby %}
 *a* ==> <em> a <em>
 **a** ==> <strong> a <strong>
@@ -108,7 +115,7 @@ keywords: Jekyll, Markdown, Usage
 这样就可以达到效果了
 
 还有一种方式:
-
+**例子5**
 {% highlight Ruby %}
 ```javascript
 var canvas = document.getElementByld("canvas")
@@ -122,28 +129,35 @@ var canvas = document.getElementByld("canvas")
 也可以用\`\`表示行内代码
 
 
+**例子6**
 {% highlight Ruby %}
 这是`javascript`代码
 
 {% endhighlight %}
 
 
+这是`javascript`代码
+
 # 6.数学符号
 
 使用下面就可以表示了
 
+**例子7**
 {% highlight Ruby %}
 
 $$a^2+b^2=c^2$$
 
-$$a^2+b^2=c^2$$
 
 {% endhighlight %}
+
+$$a^2+b^2=c^2$$
+
 
 # 7.注释
 
 使用\> 就可以当引用或者注释了
 
+**例子8**
 {% highlight Ruby %}
 
 > 这是一段引用
@@ -153,18 +167,99 @@ $$a^2+b^2=c^2$$
 
 {% endhighlight %}
 
-
 > 这是一段引用
-
+>> 这是二级引用
+>>> 这是三级引用
 
 # 8.图片
 
+可以使用`![Alt text](/path/to/img.jpg "Optional title")` 导入图片
+* `Alt text` 为无法显示时显示的图片
+* `/path/to/img.jpg` 为所在路径
+* `Optional title` 为对应的标题
+
+**例子9**
 {% highlight Ruby %}
+ ![Markdown](http://images.cnitblog/com/a.jpg)
+{% endhighlight %}
 
- ![
+还有一种方式是使用代理标签,使用 ` ![1-1][]`这样的标签，记得在前面要留空格，然后在最后面添加上对应的地址  `[1-1]: {{BASE_PATH}}/images/Pro_Git/1-1.png "Optional title"`, 
 
+**例子10**
+{% highlight Ruby %}
+ ![1-1][]
+[1-1]: {{BASE_PATH}}/images/Pro_Git/1-1.png "Optional title"
 {% endhighlight %}
 
 
-[othree]: http://markwodn.tw/#p
 
+# 9.表格
+
+具体使用方式请看示例。
+
+* `------:`为右对齐。
+* `:------`为左对齐。
+* `:------:`为居中对齐。
+* `-------`为使用默认居中对齐。
+
+**例子10**
+{% highlight Ruby %}
+
+|         序号    |    交易名    |    交易说明    |    备注    |
+|    ------:      | :-------:    |    :---------  |    ------    |
+|    1            |    prfcfg    |    菜单配置    |    可以通过此交易查询到所有交易码和菜单的对应关系    |
+|    2            |    gentmo    |    编译所有交易    |    |
+|    100000       |    sysdba    |    数据库表模型汇总    |    |
+{% endhighlight %}
+
+
+|         序号    |    交易名    |    交易说明    |    备注    |
+|    ------:      | :-------:    |    :---------  |    ------    |
+|    1            |    prfcfg    |    菜单配置    |    可以通过此交易查询到所有交易码和菜单的对应关系    |
+|    2            |    gentmo    |    编译所有交易    |    |
+|    100000       |    sysdba    |    数据库表模型汇总    |    |
+
+
+
+# 10.超链接
+
+使用` [](link "Optional title)"` 表示行内链接，其中:
+* `[]` 内的内容为要添加链接的文字
+* `link` 为链接地址
+* `optional title` 为显示的标题
+
+参考的示例
+
+**例子11**
+{% highlight Ruby %}
+这是我们常用的地址：[Baidu](www.baidu.com "百度一下,你就知道")
+{% endhighlight %}
+
+这是我们常用的地址：[Baidu](www.baidu.com "百度一下,你就知道")
+
+**例子12 参考式链接**
+{% highlight Ruby %}
+这是我们常用的地址：[Baidu][1]
+
+[1]: www.baidu.com "百度一下你就知道"
+{% endhighlight %}
+
+这是我们常用的地址：[Baidu][1]
+
+
+这是也是预测参考的链接：[cnblogs][2]
+
+
+# 11.分隔行
+
+三个以上\*或者\_，并且上下空行之后只是分割
+
+*****
+
+_____
+
+
+[othree]: http://markwodn.tw/#p
+[1]: www.baidu.com "百度一下你就知道"
+[2]: www.cnblogs.com/crazyant007/p/4220066.html
+[markdown]:  {{BASE_PATH}}/images/markdown.png "markdown"
